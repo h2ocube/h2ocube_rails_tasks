@@ -5,25 +5,10 @@ if File.exist? Rails.root.join('config/mongoid.yml')
     host = config['hosts'][0].split(':')[0]
     port = config['hosts'][0].split(':')[1]
 
-    desc 'Start Mongodb'
-    task :start do
-      zfben_rails_rake_system "mkdir #{Rails.root}/mongo" unless File.exists?(Rails.root.join('mongo'))
-      zfben_rails_rake_system "mkdir #{Rails.root}/log" unless File.exists?(Rails.root.join('log'))
-      zfben_rails_rake_system "mongod --nohttpinterface --nojournal --port #{port} --bind_ip #{host} --dbpath #{Rails.root}/mongo --fork --logpath #{Rails.root}/log/mongodb.log"
-    end
-
-    desc 'Stop Mongodb'
-    task :stop do
-      path = Rails.root.join('mongo/mongod.lock').to_s
-      if File.exists?(path)
-        zfben_rails_rake_system "kill `cat #{path}`"
-        zfben_rails_rake_system 'rm ' + path
-      end
-    end
-
-    desc 'Clear mongo folder'
+    clear = "mongod --host #{host} --port #{port} --db #{db} --eval 'db.DropDatabase()'"
+    desc clear
     task :clear do
-      zfben_rails_rake_system 'rm -r mongo/*'
+      zfben_rails_rake_system clear
     end
     
     backup = "mongodump --host #{host} --port #{port} --db #{db}"
@@ -38,9 +23,10 @@ if File.exist? Rails.root.join('config/mongoid.yml')
       zfben_rails_rake_system restore
     end
     
-    desc 'Repair Mongodb'
+    repair = "mongod --nohttpinterface --nojournal --port #{port} --bind_ip #{host} --dbpath #{Rails.root}/mongo --repair"
+    desc repair
     task :repair do
-      "mongod --nohttpinterface --nojournal --port #{port} --bind_ip #{host} --dbpath #{Rails.root}/mongo --repair"
+      zfben_rails_rake_system repair
     end
   end
 end
