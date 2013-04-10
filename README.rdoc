@@ -13,6 +13,11 @@ This is plugin to add some useful tasks to rails.
   rake unicorn:start                  # Start unicorn server
   rake unicorn:stop                   # Stop unicorn server
 
+  # has config/puma.rb
+  rake puma:restart                # Hot restart puma server
+  rake puma:start                  # Start puma server
+  rake puma:stop                   # Stop puma server
+
   # has config/mongoid.yml
   rake mongodb:dump                   # mongodump
   rake mongodb:restore                # mongorestore
