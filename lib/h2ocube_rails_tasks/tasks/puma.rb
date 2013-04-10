@@ -2,7 +2,7 @@ if File.exists? Rails.root.join('config/puma.rb')
   namespace :puma do
     desc 'Start puma server'
     task :start => :stop do
-      cmd 'puma -C config/puma.rb -e production'
+      cmd = 'puma -C config/puma.rb -e production'
       zfben_rails_rake_system 'mkdir tmp' unless File.exists? Rails.root.join('tmp')
       zfben_rails_rake_system cmd
     end
