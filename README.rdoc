@@ -15,7 +15,6 @@ This is plugin to add some useful tasks to rails.
 
   # has config/mongoid.yml
   rake mongodb:dump                   # mongodump
-  rake mongodb:clear                  # drop database
   rake mongodb:restore                # mongorestore
   rake mongodb:repair                 # Repair Mongodb
 

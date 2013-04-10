@@ -4,12 +4,6 @@ if File.exist? Rails.root.join('config/mongoid.yml')
     db = config['database']
     host = config['hosts'][0].split(':')[0]
     port = config['hosts'][0].split(':')[1]
-
-    clear = "mongod --host #{host} --port #{port} --db #{db} --eval 'db.DropDatabase()'"
-    desc clear
-    task :clear do
-      zfben_rails_rake_system clear
-    end
     
     backup = "mongodump --host #{host} --port #{port} --db #{db}"
     desc backup
