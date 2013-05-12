@@ -2,9 +2,8 @@ if File.exists? Rails.root.join('config/rainbows.rb')
   namespace :rainbows do
     desc 'Start rainbows server'
     task :start => :stop do
-      cmd 'rainbows -c config/rainbows.rb -E production -D'
       zfben_rails_rake_system 'mkdir tmp' unless File.exists? Rails.root.join('tmp')
-      zfben_rails_rake_system cmd
+      zfben_rails_rake_system 'rainbows -c config/rainbows.rb -E production -D'
     end
 
     desc 'Stop rainbows server'
