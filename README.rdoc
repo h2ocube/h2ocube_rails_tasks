@@ -13,6 +13,11 @@ This is plugin to add some useful tasks to rails.
   rake unicorn:start                  # Start unicorn server
   rake unicorn:stop                   # Stop unicorn server
 
+  # has config/rainbows.rb
+  rake rainbows:restart                # Hot restart rainbows server
+  rake rainbows:start                  # Start rainbows server
+  rake rainbows:stop                   # Stop rainbows server
+
   # has config/puma.rb
   rake puma:restart                # Hot restart puma server
   rake puma:start                  # Start puma server
