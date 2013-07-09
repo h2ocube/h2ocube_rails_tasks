@@ -1,6 +1,6 @@
 if File.exist? Rails.root.join('config/database.yml')
   namespace :mongodb do
-    config = YAML.load(File.read(Rails.root.join('config/database.yml')))[Rails.env.to_s]['sessions']['default']
+    config = YAML.load(File.read(Rails.root.join('config/database.yml')))[Rails.env.to_s]
     db = config['database']
     host = config['host']
     FileUttils.mkdir_p Rails.root.join('mysql')
