@@ -1,9 +1,9 @@
 if File.exist? Rails.root.join('config/database.yml')
-  namespace :mongodb do
+  namespace :mysql do
     config = YAML.load(File.read(Rails.root.join('config/database.yml')))[Rails.env.to_s]
     db = config['database']
     host = config['host']
-    FileUttils.mkdir_p Rails.root.join('mysql')
+    FileUtils.mkdir_p Rails.root.join('mysql')
 
     backup = "mysqldump -h #{host} #{db} > #{Rails.root}/mysql/dump.sql"
     desc backup
