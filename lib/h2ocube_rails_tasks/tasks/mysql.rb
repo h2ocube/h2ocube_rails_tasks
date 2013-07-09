@@ -20,13 +20,13 @@ if File.exist? Rails.root.join('config/database.yml')
     backup_all = "mysqldump -h #{host} --all-databases > #{Rails.root}/mysql/dump_all.sql"
     desc backup_all
     task :dump_all do
-      zfben_rails_rake_system backup
+      zfben_rails_rake_system backup_all
     end
 
     restore_all = "mysql -h #{host} < #{Rails.root}/mysql/dump_all.sql"
     desc restore_all
     task :restore_all => 'db:create' do
-      zfben_rails_rake_system restore
+      zfben_rails_rake_system restore_all
     end
   end
 end
