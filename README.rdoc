@@ -14,9 +14,9 @@ This is plugin to add some useful tasks to rails.
   rake unicorn:stop                   # Stop unicorn server
 
   # has config/rainbows.rb
-  rake rainbows:restart                # Hot restart rainbows server
-  rake rainbows:start                  # Start rainbows server
-  rake rainbows:stop                   # Stop rainbows server
+  rake rainbows:restart               # Hot restart rainbows server
+  rake rainbows:start                 # Start rainbows server
+  rake rainbows:stop                  # Stop rainbows server
 
   # has config/puma.rb
   rake puma:restart                   # Hot restart puma server
@@ -24,8 +24,10 @@ This is plugin to add some useful tasks to rails.
   rake puma:stop                      # Stop puma server
 
   # has config/database.yml
-  rake mysql:dump                   # mysqldump
-  rake mysql:restore                # restore mysql with dump data
+  rake mysql:dump                     # mysqldump
+  rake mysql:restore                  # restore mysql with dump data
+  rake mysql:dump_all                 # mysqldump
+  rake mysql:restore_all              # restore mysql with dump data
 
   # has config/mongoid.yml
   rake mongodb:dump                   # mongodump
