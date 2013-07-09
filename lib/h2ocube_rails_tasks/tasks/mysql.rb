@@ -23,7 +23,7 @@ if File.exist? Rails.root.join('config/database.yml')
       zfben_rails_rake_system backup
     end
 
-    restore = "mysql -h #{host} < #{Rails.root}/mysql/dump_all.sql"
+    restore_all = "mysql -h #{host} < #{Rails.root}/mysql/dump_all.sql"
     desc restore_all
     task :restore_all => 'db:create' do
       zfben_rails_rake_system restore
