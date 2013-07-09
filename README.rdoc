@@ -19,9 +19,13 @@ This is plugin to add some useful tasks to rails.
   rake rainbows:stop                   # Stop rainbows server
 
   # has config/puma.rb
-  rake puma:restart                # Hot restart puma server
-  rake puma:start                  # Start puma server
-  rake puma:stop                   # Stop puma server
+  rake puma:restart                   # Hot restart puma server
+  rake puma:start                     # Start puma server
+  rake puma:stop                      # Stop puma server
+
+  # has config/database.yml
+  rake mysql:dump                   # mysqldump
+  rake mysql:restore                # restore mysql with dump data
 
   # has config/mongoid.yml
   rake mongodb:dump                   # mongodump
@@ -34,7 +38,7 @@ This is plugin to add some useful tasks to rails.
   rake resque:start                   # Start Resque daemon worker
   rake resque:stop                    # Stop Resque worker
   rake resque:web                     # Start Resque web interface
-  
+
 == Getting Started
 
 1. adding gem to Gemfile
