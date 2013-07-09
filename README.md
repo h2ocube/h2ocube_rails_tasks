@@ -8,7 +8,7 @@ This is a plugin to add some useful tasks to rails.
 
 Add this line to your application's Gemfile:
 
-    gem 'h2ocube_rails_tasks', group: :development
+    gem 'h2ocube_rails_tasks'
 
 And then execute:
 
