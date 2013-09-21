@@ -59,6 +59,9 @@ Or install it yourself as:
     rake resque:stop                    # Stop Resque worker
     rake resque:web                     # Start Resque web interface
 
+    # others
+    rake locales:sort                   # Sort config/locales/*.yml
+
 ## Contributing
 
 1. Fork it
