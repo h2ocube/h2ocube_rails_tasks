@@ -3,7 +3,7 @@ $:.push File.expand_path("../lib", __FILE__)
 
 Gem::Specification.new do |s|
   s.name        = 'h2ocube_rails_tasks'
-  s.version     = '0.0.6'
+  s.version     = '0.0.7'
   s.platform    = Gem::Platform::RUBY
   s.authors     = ['Ben']
   s.email       = ['ben@h2ocube.com']
@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
-  s.require_paths = ["lib"]
+  s.require_paths = ['lib']
 
   s.add_dependency 'rainbow'
 end
