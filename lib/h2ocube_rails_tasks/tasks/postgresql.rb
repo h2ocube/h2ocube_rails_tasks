@@ -8,28 +8,16 @@ if File.exist? Rails.root.join('config/database.yml')
       password = config['password']
       FileUtils.mkdir_p Rails.root.join('postgresql')
 
-      backup = "pg_dump -h #{host} -d #{db} -U #{user} -f #{Rails.root}/postgresql/dump.sql"
+      backup = "pg_dump -h #{host} -d #{db} -U #{user} -F t -f #{Rails.root}/postgresql/dump.tar"
       desc backup
       task :dump do
         zfben_rails_rake_system backup
       end
 
-      restore = "postgresql -h #{host} #{db} < #{Rails.root}/postgresql/dump.sql"
+      restore = "pg_restore -h #{host} -U #{user} -c -f #{Rails.root}/postgresql/dump.tar"
       desc restore
       task :restore => 'db:create' do
         zfben_rails_rake_system restore
-      end
-
-      backup_all = "pg_dump -h #{host} --all-databases > #{Rails.root}/postgresql/dump_all.sql"
-      desc backup_all
-      task :dump_all do
-        zfben_rails_rake_system backup_all
-      end
-
-      restore_all = "postgresql -h #{host} < #{Rails.root}/postgresql/dump_all.sql"
-      desc restore_all
-      task :restore_all => 'db:create' do
-        zfben_rails_rake_system restore_all
       end
     end
   end

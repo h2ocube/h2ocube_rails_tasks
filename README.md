@@ -47,6 +47,9 @@ Or install it yourself as:
     rake mysql:dump_all                 # mysqldump
     rake mysql:restore_all              # restore mysql with dump data
 
+    rake postgresql:dump                # pg_dump
+    rake postgresql:restore             # pg_restore
+
     # has config/mongoid.yml
     rake mongodb:dump                   # mongodump
     rake mongodb:restore                # mongorestore
