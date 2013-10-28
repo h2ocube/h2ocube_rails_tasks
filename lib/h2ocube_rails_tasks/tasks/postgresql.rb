@@ -15,7 +15,7 @@ if File.exist? Rails.root.join('config/database.yml')
 
       restore = "pg_restore -h #{host} -U #{user} -d #{user} -c -O -n public #{Rails.root}/postgresql/dump.tar"
       desc restore
-      task :restore => ['db:drop','db:create'] do
+      task :restore do
         zfben_rails_rake_system restore
       end
     end
