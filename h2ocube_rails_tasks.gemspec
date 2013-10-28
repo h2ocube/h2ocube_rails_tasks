@@ -3,7 +3,7 @@ $:.push File.expand_path("../lib", __FILE__)
 
 Gem::Specification.new do |s|
   s.name        = 'h2ocube_rails_tasks'
-  s.version     = '0.0.8'
+  s.version     = '0.0.9'
   s.platform    = Gem::Platform::RUBY
   s.authors     = ['Ben']
   s.email       = ['ben@h2ocube.com']
