@@ -5,7 +5,6 @@ if File.exist? Rails.root.join('config/database.yml')
       db = config['database']
       host = config['host']
       user = config['username']
-      password = config['password']
       FileUtils.mkdir_p Rails.root.join('postgresql')
 
       backup = "pg_dump -h #{host} -d #{db} -U #{user} -F t -f #{Rails.root}/postgresql/dump.tar"
@@ -14,9 +13,9 @@ if File.exist? Rails.root.join('config/database.yml')
         zfben_rails_rake_system backup
       end
 
-      restore = "pg_restore -h #{host} -U #{user} -c -f #{Rails.root}/postgresql/dump.tar"
+      restore = "pg_restore -h #{host} -U #{user} -d #{user} -c -O -n public #{Rails.root}/postgresql/dump.tar"
       desc restore
-      task :restore => 'db:create' do
+      task :restore => ['db:drop','db:create'] do
         zfben_rails_rake_system restore
       end
     end
