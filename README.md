@@ -24,7 +24,7 @@ Or install it yourself as:
     rake git:clear                      # Clear files in .gitignore
     rake git:commit[comment]            # Git commit with your comment
     rake git:pull                       # Git pull
-    rake git:push[comment]              # Git push with your comment
+    rake git:push[comment, to]          # Git push with your comment
 
     # has unicorn.rb
     rake unicorn:restart                # Hot restart unicorn server
@@ -64,6 +64,8 @@ Or install it yourself as:
 
     # others
     rake locales:sort                   # Sort config/locales/*.yml
+    rake db:dump                        # Dump all database
+    rake backup                         # Backup all things
 
 ## Contributing
 
