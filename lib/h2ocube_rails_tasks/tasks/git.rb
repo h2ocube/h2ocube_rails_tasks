@@ -14,8 +14,10 @@ if File.exists? Rails.root.join('.git')
     end
 
     desc 'Git push with your comment'
-    task :push, [:comment] => [:commit] do |task, comment|
-      zfben_rails_rake_system 'git push'
+    task :push, [:comment, :to] => [:commit] do |task, args|
+      cmd = 'git push'
+      cmd << ' ' << args[:to] if args[:to]
+      zfben_rails_rake_system cmd
     end
 
     desc 'Clear files in .gitignore'
