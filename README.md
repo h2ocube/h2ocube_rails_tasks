@@ -65,6 +65,7 @@ Or install it yourself as:
     # others
     rake locales:sort                   # Sort config/locales/*.yml
     rake db:dump                        # Dump all database
+    rake db:restore                     # Restore all database
     rake backup                         # Backup all things
 
 ## Contributing
