@@ -1,8 +1,10 @@
 if File.exists? Rails.root.join('.git')
   namespace :git do
     desc 'Git pull'
-    task :pull do
-      zfben_rails_rake_system 'git pull'
+    task :pull, [:from] do |task, args|
+      cmd = 'git pull'
+      cmd << ' ' << args[:from] if args[:from]
+      zfben_rails_rake_system cmd
     end
 
     desc 'Git commit with your comment'

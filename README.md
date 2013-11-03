@@ -23,7 +23,7 @@ Or install it yourself as:
     # has .git folder
     rake git:clear                      # Clear files in .gitignore
     rake git:commit[comment]            # Git commit with your comment
-    rake git:pull                       # Git pull
+    rake git:pull[from]                 # Git pull
     rake git:push[comment, to]          # Git push with your comment
 
     # has unicorn.rb
